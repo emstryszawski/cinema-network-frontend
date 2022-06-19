@@ -6,7 +6,7 @@ import {RepertoireItemComponent} from "./repertoires-list/repertoire-item/repert
 
 const routes: Routes = [
   { path: '', redirectTo: '/repertoires', pathMatch: 'full' },
-  { path: 'tickets/:correlationId', component: TicketFormComponent },
+  { path: 'tickets', component: TicketFormComponent },
   {
     path: 'repertoires',
     component: RepertoiresListComponent,

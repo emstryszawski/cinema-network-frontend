@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {DataLoaderService} from "../common/service/data-loader.service";
 import {TicketTypeDiscount} from "../common/model/ticket-type-discount.model";
 import {ActivatedRoute} from "@angular/router";
+import {DataSenderService} from "../common/service/data-sender.service";
+import {elementAt} from "rxjs";
 
 @Component({
   selector: 'app-ticket-form',
@@ -10,13 +12,17 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class TicketFormComponent implements OnInit {
   public ticketDiscounts: TicketTypeDiscount[] = [];
+  public correlationId: number;
 
   constructor(private dataLoaderService: DataLoaderService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private dataSenderService: DataSenderService) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.snapshot.paramMap.get('correlationId')
+    this.dataSenderService.createPurchase().subscribe(data => {
+      this.correlationId = data.correlationId;
+    });
 
     this.dataLoaderService.findAllTicketDiscounts()
       .subscribe((data) => {
@@ -37,5 +43,17 @@ export class TicketFormComponent implements OnInit {
     if (discount.quantity != 0) {
       discount.quantity--;
     }
+  }
+
+  public sendTicketsToServer() {
+    let ticketsToAdd: TicketTypeDiscount[] = [];
+    this.ticketDiscounts.forEach(element => {
+      if (element.quantity > 0) {
+        ticketsToAdd.push(element);
+      }
+    });
+    ticketsToAdd.forEach(element => {
+      this.dataSenderService.addTickets(element.id, element.quantity, this.correlationId);
+    })
   }
 }

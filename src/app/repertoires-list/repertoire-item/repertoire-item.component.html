@@ -39,8 +39,8 @@
               <p>{{ repertoire.screeningType }}</p>
             </div>
             <div class="box-element">
-              <a [routerLink]="'/tickets/' + correlationId">
-                <button (click)="createPurchase()">
+              <a [routerLink]="'/tickets'">
+                <button>
                   {{ repertoire.startDateTime | date : 'H:mm' }}
                 </button>
               </a>
