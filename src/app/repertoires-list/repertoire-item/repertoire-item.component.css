@@ -1,0 +1,44 @@
+.border-box {
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #FF9900;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.bar {
+  width: 100%;
+  background: #0C0C0C;
+  margin-top: 10px;
+}
+
+.h2 {
+  color: #ffffff;
+  font-size: x-large;
+}
+
+.cover {
+  max-width: 100%;
+}
+
+.box-element {
+  max-width: fit-content;
+  background-color: #FF9900;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.box-element p {
+  margin: 0;
+  font-weight: bold;
+  color: #000000;
+}
+
+.box-elements-group {
+  display: flex;
+}
+
+.box-element + .box-element {
+  margin-left: 25px;
+}
+

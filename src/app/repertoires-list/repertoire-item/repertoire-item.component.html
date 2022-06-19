@@ -1,0 +1,56 @@
+<div class="col-md-12">
+  <div class="row border-box">
+    <div class="col-md-2">
+      <img class="cover" src="{{ movie.coverPicturePath }}" alt="{{ movie.title }}">
+    </div>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="border-box bar">
+          <h2>{{ movie.title }}</h2>
+          <div class="box-elements-group">
+            <div class="box-element">
+              <p>{{ movie.rRating }}</p>
+            </div>
+            <div class="box-element">
+              <p>{{ movie.category }}</p>
+            </div>
+            <div class="box-element">
+              <p>{{ movie.duration }}</p>
+            </div>
+            <div class="box-element">
+              <p>{{ repertoire.language }}</p>
+            </div>
+            <div class="box-element" *ngIf="repertoire.subtitles">
+              <p>PL</p>
+            </div>
+            <div class="box-element" *ngIf="repertoire.dubbing">
+              <p>Dubbing</p>
+            </div>
+            <div class="box-element" *ngIf="repertoire.lector">
+              <p>Lektor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="border-box bar">
+          <div class="box-elements-group">
+            <div class="box-element">
+              <p>{{ repertoire.screeningType }}</p>
+            </div>
+            <div class="box-element">
+              <button
+                [routerLink]="'/tickets'">
+<!--                (click)="openDialog()"-->
+              {{ repertoire.startDateTime }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="repertoire.screeningType==='3D'">
+
+      </div>
+    </div>
+  </div>
+</div>

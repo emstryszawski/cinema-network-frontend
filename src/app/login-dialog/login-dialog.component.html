@@ -1,0 +1,32 @@
+<div class="mat-dialog-container">
+  <div class="col-xs-6">
+    <div class="row">
+      <div class="vertical-input">
+        <label for="email">E-MAIL</label>
+        <input type="text" id="email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="vertical-input">
+        <label for="password">HASŁO</label>
+        <input type="text" id="password">
+      </div>
+    </div>
+    <div class="row">
+      <button>Zaloguj się</button>
+    </div>
+  </div>
+  <div class="col-xs-1 vertical-line"></div>
+  <div class="col-xs-5">
+    <div class="row">
+      <p>Kontynuuj jako gość i kup bilety bez rejestracji</p>
+    </div>
+    <div class="row">
+      <a [routerLink]="'/tickets'">
+        <button>
+          Kontynuuj jako gość
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

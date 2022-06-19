@@ -1,0 +1,17 @@
+.vertical-line {
+  display: inline-block;
+  border-left: 1px solid #FF9900;
+  height: 100%;
+}
+
+.vertical-input {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.form {
+  display: flex;
+}
