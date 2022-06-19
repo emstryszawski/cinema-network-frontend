@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {RepertoiresListComponent} from "./repertoires-list/repertoires-list.component";
 import {TicketFormComponent} from "./ticket-form/ticket-form.component";
+import {RepertoireItemComponent} from "./repertoires-list/repertoire-item/repertoire-item.component";
 
 const routes: Routes = [
-  { path: '', component: RepertoiresListComponent },
-  { path: 'tickets', component: TicketFormComponent }
+  { path: '', redirectTo: '/repertoires', pathMatch: 'full' },
+  { path: 'tickets/:correlationId', component: TicketFormComponent },
+  {
+    path: 'repertoires',
+    component: RepertoiresListComponent,
+    children: [
+      { path: 'overview', component: RepertoireItemComponent }
+    ]
+  }
 ];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes, {useHash: true})
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 
 export class AppRoutingModule { }
+export const routingComponents = [RepertoiresListComponent, RepertoireItemComponent, TicketFormComponent]

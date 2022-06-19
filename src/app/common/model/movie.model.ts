@@ -7,9 +7,8 @@ export class Movie {
   public description: string;
   public category: Category;
   public duration: number;
-  public rRating: string;
   public trailerPath: string;
   public coverPicturePath: string;
   public pathToFilmWeb: string;
-  private repertoires: Set<Repertoire>
+  public rrating: string;
 }

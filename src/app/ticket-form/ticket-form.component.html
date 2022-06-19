@@ -1,1 +1,27 @@
-<p>ticket-form works!</p>
+<div class="container">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Rodzaj</th>
+        <th scope="col">Cena</th>
+        <th scope="col">Ilość</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let discount of ticketDiscounts">
+        <td>{{ discount.name }}</td>
+        <td *ngIf="discount.discountValue === 0">25</td>
+        <td *ngIf="discount.discountValue !== 0">{{ 25 * ((100 - discount.discountValue) / 100.0) }}</td>
+        <td>
+          <div>
+            <button type="button" (click)="minus(discount)">-</button>
+            <input type="text" [value]="discount.quantity">
+            <button type="button" (click)="plus(discount)">+</button>
+          </div>
+        </td>
+      </tbody>
+    </table>
+    <button>WYBIERZ MIEJSCA</button>
+  </div>
+</div>
