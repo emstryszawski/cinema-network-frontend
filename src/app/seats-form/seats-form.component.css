@@ -1,0 +1,17 @@
+.seat {
+  width: 40px;
+  height: 40px;
+  background-color: green;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.container {
+  background-color: #e0e0e0;
+}
+
+button:focus {
+  background-color: #FF9900;
+}

@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { CommonModule } from "@angular/common";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { SeatsFormComponent } from './seats-form/seats-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginDialogComponent,
-    routingComponents
+    routingComponents,
+    SeatsFormComponent
   ],
   imports: [
     BrowserModule,

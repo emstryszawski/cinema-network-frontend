@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataLoaderService} from "../common/service/data-loader.service";
 import {TicketTypeDiscount} from "../common/model/ticket-type-discount.model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DataSenderService} from "../common/service/data-sender.service";
 import {elementAt} from "rxjs";
 
@@ -15,7 +15,7 @@ export class TicketFormComponent implements OnInit {
   public correlationId: number;
 
   constructor(private dataLoaderService: DataLoaderService,
-              private activatedRoute: ActivatedRoute,
+              private router: Router,
               private dataSenderService: DataSenderService) {
   }
 
@@ -55,5 +55,6 @@ export class TicketFormComponent implements OnInit {
     ticketsToAdd.forEach(element => {
       this.dataSenderService.addTickets(element.id, element.quantity, this.correlationId);
     })
+    this.router.navigate(['/seats'], { state: {data: this.correlationId}})
   }
 }
