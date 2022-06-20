@@ -47,4 +47,28 @@ export class DataSenderService {
       params: params
     }).subscribe(response => console.log(response));
   }
+
+  public addCustomer(firstname: string, lastname: string, email: string, phoneNumber: string, correlationId: number) {
+    const body = JSON.stringify({firstname, lastname, email, phoneNumber})
+    const headers = { 'Content-Type': 'application/json'}
+    const params = new HttpParams()
+      .append('correlationId', correlationId)
+
+    return this.http.post<any>('http://localhost:8080/purchase/customer', body, {
+      headers: headers,
+      params: params
+    }).subscribe(response => console.log(response));
+  }
+
+  addBuy(deliveryMethod: string, paymentMethod: string, correlationId: number) {
+    const body = JSON.stringify({deliveryMethod, paymentMethod});
+    const headers = { 'Content-Type': 'application/json'};
+    const params = new HttpParams()
+      .append('correlationId', correlationId);
+
+    return this.http.post<any>('http://localhost:8080/purchase/buy', body, {
+      headers: headers,
+      params: params
+    }).subscribe(response => console.log(response));
+  }
 }

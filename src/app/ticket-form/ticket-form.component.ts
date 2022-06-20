@@ -55,6 +55,6 @@ export class TicketFormComponent implements OnInit {
     ticketsToAdd.forEach(element => {
       this.dataSenderService.addTickets(element.id, element.quantity, this.correlationId);
     })
-    this.router.navigate(['/seats'], { state: {data: this.correlationId}})
+    this.router.navigate(['/seats'], { state: {data: this.correlationId}});
   }
 }

@@ -11,13 +11,18 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { CommonModule } from "@angular/common";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { SeatsFormComponent } from './seats-form/seats-form.component';
+import { CustomerFormComponent } from './customer-form/customer-form.component';
+import {FormsModule} from "@angular/forms";
+import { BuyFormComponent } from './buy-form/buy-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginDialogComponent,
     routingComponents,
-    SeatsFormComponent
+    SeatsFormComponent,
+    CustomerFormComponent,
+    BuyFormComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { SeatsFormComponent } from './seats-form/seats-form.component';
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

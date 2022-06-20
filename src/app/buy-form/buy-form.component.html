@@ -1,0 +1,20 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="deliveryMethod">WYBIERZ SPOSÓB OTRZYMANIA BILETU</label>
+      <select id="deliveryMethod" class="form-control" ngModel name="deliveryMethod">
+        <option value="E_TICKET">E-BILET</option>
+        <option value="PICK_UP">ODBIÓR PRZY KASIE</option>
+      </select>
+      <label for="paymentMethod">WYBIERZ SPOSÓB PŁATNOŚCI</label>
+      <select id="paymentMethod" class="form-control" ngModel name="paymentMethod">
+        <option value="MASTERPASS">Masterpass</option>
+        <option value="CREDIT_CARD">Debit / credit card</option>
+        <option value="BLIK">Blik</option>
+        <option value="FAST_ONLINE_TRANSFER">Fast online transfer</option>
+        <option value="PAYPAL">PAYPAL</option>
+      </select>
+    </div>
+    <button type="submit">ZAPŁAĆ I ZAKOŃCZ</button>
+  </form>
+</div>
